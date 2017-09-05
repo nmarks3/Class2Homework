@@ -17,13 +17,11 @@ public class WelcomeService {
 
     public String produceMessage(String name) {
         String welcomeMsg = "";
-        String hourString;
         int hour = 0; 
         
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("HH");
-        hourString = sdf.format(cal.getTime());
-        hour = Integer.parseInt(hourString);
+        hour = Integer.parseInt(sdf.format(cal.getTime()));
         
         if (hour <= 12) {
         welcomeMsg = "Good Morning";
