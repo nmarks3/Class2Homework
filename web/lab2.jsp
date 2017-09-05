@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Aug 29, 2017, 8:55:53 PM
+    Document   : nameform
+    Created on : Aug 29, 2017, 9:04:17 PM
     Author     : Nolan
 --%>
 
@@ -9,18 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Basic Java Web Home Page</title>
+        <title>Name Form</title>
     </head>
     <body>
-        <h2>Choose an option:</h2>
-        <p>Click <a href="nameform.jsp">Here</a> to goto Name Entry Form</p>
-        <<form name="nameForm" id="nameForm" method="POST" action="PageGenerator">
+        <h2>Name Entry</h2>
+        <%-- ACTION must equal the urlPatterns in the Servlet (NameMessageController) --%> 
+        <form name="nameForm" id="nameForm" method="POST" action="PageGenerator">
             
             <%-- request.GetParameter("userName") looks for this and retrieves the value--%> 
             Enter name: <input type="text" value="" name="userName"><br>
             <input type="submit" name="submit" value="Submit">
             
         </form>
-
     </body>
 </html>

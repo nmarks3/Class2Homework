@@ -16,7 +16,7 @@
         <%
         
             Object msg0bj = request.getAttribute("nameMsg");
-            STring msg = "Undefined";
+            String msg = "Undefined";
             if(msg0bj != null) {
                 msg = msg0bj.toString();
             }

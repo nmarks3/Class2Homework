@@ -13,7 +13,10 @@
     </head>
     <body>
         <h2>Name Entry</h2>
+        <%-- ACTION must equal the urlPatterns in the Servlet (NameMessageController) --%> 
         <form name="nameForm" id="nameForm" method="POST" action="NameMessageController">
+            
+            <%-- request.GetParameter("userName") looks for this and retrieves the value--%> 
             Enter name: <input type="text" value="" name="userName"><br>
             <input type="submit" name="submit" value="Submit">
             

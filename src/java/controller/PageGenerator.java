@@ -1,21 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.NameMessageService;
 
 /**
  *
  * @author Nolan
  */
-@WebServlet(name = "NameMessageController", urlPatterns = {"/NameMessageController"})
-public class NameMessageController extends HttpServlet {
+@WebServlet(name = "PageGenerator", urlPatterns = {"/PageGenerator"})
+public class PageGenerator extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +32,26 @@ public class NameMessageController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        // Goes to look for the parameter matching the name in nameform.jsp *ALWAYS RETURNS A STRING*
-        String nameEntered = request.getParameter("userName");
-        // Data Processing
-        NameMessageService nms = new NameMessageService();
-        String msg = nms.produceMessage(nameEntered);
-        // Sends it back!! "nameMsg" = key, msg = value
-        request.setAttribute("nameMsg", msg);
-        // To send any data to the VIEW you must use this to forward the
-        // request object, which contains the data, to the destination. The
-        // destination can be a JSP or another Controller, but cannot be an html page.
-        RequestDispatcher view
-                = request.getRequestDispatcher("/response.jsp");
-        view.forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Tables!</title>");
+out.println("<style>");
+out.println("table { border-collapse: collapse; border: 5px solid black; width: 100%; }");
+out.println("td { width: 20%; height: 2em; border: 1px solid #ccc; }");
+out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<table>");
+            out.println("<tbody>");
+            out.println("<tr><td>r1c1</td><td>r1c2</td><td>r1c3</td></tr><tr><td>r2c1</td><td>r2c2</td><td>r2c3</td></tr><tr><td>r3c1</td><td>r3c2</td><td>r3c3</td></tr>");
+            out.println("</tbody>");
+            out.println("</tbody>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
