@@ -14,12 +14,8 @@
     <body>
         <h2>Choose an option:</h2>
         <p>Click <a href="nameform.jsp">Here</a> to goto Name Entry Form</p>
-        <<form name="nameForm" id="nameForm" method="POST" action="PageGenerator">
-            
-            <%-- request.GetParameter("userName") looks for this and retrieves the value--%> 
-            Enter name: <input type="text" value="" name="userName"><br>
-            <input type="submit" name="submit" value="Submit">
-            
+        <form id="TableForm" method="POST" action="PageGenerator">
+            <input type="submit" name="submit" value="Go To Tables">  
         </form>
 
     </body>
