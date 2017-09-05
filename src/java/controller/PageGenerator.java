@@ -38,10 +38,10 @@ public class PageGenerator extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Tables!</title>");
-out.println("<style>");
-out.println("table { border-collapse: collapse; border: 5px solid black; width: 100%; }");
-out.println("td { width: 20%; height: 2em; border: 1px solid #ccc; }");
-out.println("</style>");
+            out.println("<style>");
+            out.println("table { border-collapse: collapse; border: 5px solid black; width: 100%; }");
+            out.println("td { width: 20%; height: 2em; border: 1px solid #ccc; }");
+            out.println("</style>");
             out.println("</head>");
             out.println("<body>");
             out.println("<table>");
