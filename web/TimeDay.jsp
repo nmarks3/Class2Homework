@@ -14,7 +14,7 @@
     <body>
         <h2>Name Entry</h2>
         <%-- ACTION must equal the urlPatterns in the Servlet (NameMessageController) --%> 
-        <form name="nameForm" id="nameForm" method="POST" action="PageGenerator">
+        <form name="nameForm" id="nameForm" method="POST" action="TimeOfDayController">
             
             <%-- request.GetParameter("userName") looks for this and retrieves the value--%> 
             Enter name: <input type="text" value="" name="userName"><br>

@@ -18,19 +18,20 @@ public class WelcomeService {
     public String produceMessage(String name) {
         WelcomeService ws = new WelcomeService();
         String finalMessage = ws.combineNameMessage();
+        
         return finalMessage + " " + name;
     }
 
     public String determineTimeOfDay(int hour) {
-        String TimeOfDay = "No Time of Day Given";
-        
+        String TimeOfDay;
+
         if (hour <= 12) {
             TimeOfDay = "Good Morning";
         } else if (hour <= 16) {
             TimeOfDay = "Good Afternoon";
         } else if (hour <= 18) {
             TimeOfDay = "Good Evening";
-        }else {
+        } else {
             TimeOfDay = "Good Night";
         }
 
@@ -39,12 +40,14 @@ public class WelcomeService {
 
     public String combineNameMessage() {
         WelcomeService ws = new WelcomeService();
-        Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("HH");
-         int  hour = Integer.parseInt(sdf.format(cal.getTime()));
         
+        Calendar cal = Calendar.getInstance();
+        int hour = Integer.parseInt(sdf.format(cal.getTime()));
+
         String TimeOfDay = ws.determineTimeOfDay(hour);
         String welcomeMessage = TimeOfDay;
+        
         return welcomeMessage;
     }
 }

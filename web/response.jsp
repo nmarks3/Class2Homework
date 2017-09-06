@@ -15,10 +15,10 @@
         <H2>Hello Response:</H2>
         <%
         
-            Object msg0bj = request.getAttribute("nameMsg");
+            Object msgObj = request.getAttribute("nameMsg");
             String msg = "Undefined";
-            if(msg0bj != null) {
-                msg = msg0bj.toString();
+            if(msgObj != null) {
+                msg = msgObj.toString();
             }
             out.println("<p>" + msg + "</p>");
         
