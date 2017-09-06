@@ -16,30 +16,35 @@ import java.util.Date;
 public class WelcomeService {
 
     public String produceMessage(String name) {
-        String welcomeMsg = "";
-        int hour = 0; 
-        
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH");
-        hour = Integer.parseInt(sdf.format(cal.getTime()));
+        WelcomeService ws = new WelcomeService();
+        String finalMessage = ws.combineNameMessage();
+        return finalMessage + " " + name;
+    }
+
+    public String determineTimeOfDay(int hour) {
+        String TimeOfDay = "No Time of Day Given";
         
         if (hour <= 12) {
-        welcomeMsg = "Good Morning";
-        } else if (hour <= 16){
-            welcomeMsg = "Good Afternoon";
-        } else {
-            welcomeMsg = "Good Night";
+            TimeOfDay = "Good Morning";
+        } else if (hour <= 16) {
+            TimeOfDay = "Good Afternoon";
+        } else if (hour <= 18) {
+            TimeOfDay = "Good Evening";
+        }else {
+            TimeOfDay = "Good Night";
         }
-      return welcomeMsg + " " + name;
-}
 
-public String determineTimeOfDay(String date) {
-        String TimeOfDay = "No Time of Day Determined";
         return TimeOfDay;
     }
-    
-    public String combineNameMessage(String name, String TimeOfDay){
-        String welcomeMessage = TimeOfDay +" " + name;
-        return welcomeMessage;       
+
+    public String combineNameMessage() {
+        WelcomeService ws = new WelcomeService();
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH");
+         int  hour = Integer.parseInt(sdf.format(cal.getTime()));
+        
+        String TimeOfDay = ws.determineTimeOfDay(hour);
+        String welcomeMessage = TimeOfDay;
+        return welcomeMessage;
     }
 }
